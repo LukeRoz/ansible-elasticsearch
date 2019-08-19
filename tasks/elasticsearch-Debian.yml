@@ -66,6 +66,7 @@
     state: present
     force: '{{ force_install }}'
     allow_unauthenticated: "{{ 'no' if es_apt_key else 'yes' }}"
+    dpkg_options: "force-confdef,force-confold,force-hold"
     cache_valid_time: 86400
   when: es_use_repository
   register: debian_elasticsearch_install_from_repo
